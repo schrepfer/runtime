@@ -4,7 +4,7 @@
 
 import datetime
 import os
-import pipes
+import shlex
 import subprocess
 import sys
 import time
@@ -16,7 +16,7 @@ def PrintCommand(argv):
   length = 0
   first = True
   for q in argv:
-    out = pipes.quote(q)
+    out = shlex.quote(q)
     if not first and length + len(out) > 100:
       sys.stderr.write(' \\\n ')
       length = 0
